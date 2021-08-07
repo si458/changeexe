@@ -1,18 +1,19 @@
+
 1 VERSIONINFO
 FILEVERSION	${FILEVERSION}
-PRODUCTVERSION	${PRODUCTVERSION}
+PRODUCTVERSION ${PRODUCTVERSION}
 FILEOS 0x40004
 FILETYPE 0x1
 {
 BLOCK "StringFileInfo"
 {
-    BLOCK "040904b0"
+    BLOCK "040904B0"
     {
-        ${block}
+    ${block}
     }
 }
 BLOCK "VarFileInfo"
     {
-        VALUE "Translation", 0x409, 0x04B0
+        VALUE "Translation", 0x0409, 0x04B0
     }
 }
