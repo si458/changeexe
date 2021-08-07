@@ -1,0 +1,30 @@
+{
+  "name": "changeexe",
+  "version": "1.0.0",
+  "description": "Change the icon and versioninfo of executable files using resource hacker",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node dlResHack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "resource",
+    "hacker",
+    "icon",
+    "executable",
+    "metadata",
+    "version",
+    "info",
+    "change",
+    "edit",
+    "fast",
+    "easy"
+  ],
+  "author": "Simon Smith",
+  "license": "MIT",
+  "dependencies": {
+    "extract-zip": "^2.0.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
+  }
+}
