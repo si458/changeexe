@@ -40,7 +40,7 @@ const changeExe = require('changeexe');
 ```javascript
 (async () => {
   await changeExe.icon('program.exe', 'picture.png');
-  await changeIcon.versionInfo('program.exe', {
+  await changeExe.versionInfo('program.exe', {
     CompanyName: 'Legit Tax Haven, LLC',
     FileDescription: 'An innocent file that will not harm your computer. Double-click to read more.',
     FileVersion: '1.3.3.7',
