@@ -21,6 +21,14 @@
     "easy"
   ],
   "author": "Simon Smith",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/si458/changeexe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/si458/changeexe/issues"
+  },
+  "homepage": "https://github.com/si458/changeexe",
   "license": "MIT",
   "dependencies": {
     "extract-zip": "^2.0.1",
