@@ -1,25 +1,29 @@
 'use strict'
 const fs = require('fs')
-const request = require('request')
-const rp = require('request-promise')
-const path = require('path')
-const extract = require('extract-zip')
+const http = require('http')
+const { join } = require('path')
+const AdmZip = require('adm-zip')
 
 function downloadResourceHacker() {
   return new Promise(async (resolve, reject) => {
     let url = 'http://www.angusj.com/resourcehacker/resource_hacker.zip'
     let filename = 'resource_hacker.zip'
-    console.log('Downloading resource_hacker.zip ...')
-    let data = await rp.get({ url: url, encoding: null })
-    console.log('Saving resource_hacker.zip ...')
-    await fs.promises.writeFile(filename, data)
-    console.log('Extracting resource_hacker.zip ...')
-    extract(filename, { dir: path.join(`${__dirname}`, 'resource_hacker') }, e => {
-      if (e) { throw e }
-      console.log(`ResourceHacker.exe extracted to ${path.join(__dirname, 'resource_hacker')}`)
-      console.log('Deleting resource_hacker.zip ...')
-      fs.unlink(path.join(__dirname, filename), resolve)
-      console.log('Deletion of resource_hacker.zip complete.')
+    console.log(`Downloading ${filename} ...`)
+    http.get(url, (res) => {
+      const filePath = fs.createWriteStream(join(__dirname, filename))
+      res.pipe(filePath)
+      filePath.on('finish', () => {
+        filePath.close()
+        console.log('Download Completed')
+        console.log(`Extracting ${filename} ...`)
+        const zip = new AdmZip(filename)
+        zip.extractAllTo(join(__dirname, 'resource_hacker'), true)
+        console.log(`ResourceHacker.exe extracted to ${join(__dirname, 'resource_hacker')}`)
+        console.log('Deleting resource_hacker.zip ...')
+        fs.unlink(join(__dirname, filename), resolve)
+        console.log('Deletion of resource_hacker.zip complete.')
+        resolve()
+      })
     })
   })
 }
@@ -31,5 +35,5 @@ try {
 catch (e) {
   console.log(e)
   console.log('ResourceHacker.exe could not be downloaded.')
-  console.log(`Please download http://www.angusj.com/resourcehacker/resource_hacker.zip and extract ResourceHacker.exe to ${path.join(__dirname, 'resource_hacker')}`)
+  console.log(`Please download http://www.angusj.com/resourcehacker/resource_hacker.zip and extract ResourceHacker.exe to ${join(__dirname, 'resource_hacker')}`)
 }

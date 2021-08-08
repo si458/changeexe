@@ -31,8 +31,6 @@
   "homepage": "https://github.com/si458/changeexe",
   "license": "MIT",
   "dependencies": {
-    "extract-zip": "^2.0.1",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "adm-zip": "^0.5.5"
   }
 }
