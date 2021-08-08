@@ -1,6 +1,6 @@
 {
   "name": "changeexe",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Change the icon and versioninfo of executable files using resource hacker",
   "main": "index.js",
   "scripts": {
