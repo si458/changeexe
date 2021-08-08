@@ -1,8 +1,6 @@
 'use strict'
 const fs = require('fs')
 const run = require('child_process').execSync
-const request = require('request')
-const rp = require('request-promise')
 const path = require('path')
 
 /**
