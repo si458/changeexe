@@ -1,6 +1,6 @@
 'use strict'
 const fs = require('fs')
-const http = require('http')
+const https = require('https')
 const { join } = require('path')
 const AdmZip = require('adm-zip')
 
@@ -9,7 +9,7 @@ function downloadResourceHacker() {
     let url = 'https://www.angusj.com/resourcehacker/resource_hacker.zip'
     let filename = 'resource_hacker.zip'
     console.log(`Downloading ${filename} ...`)
-    http.get(url, (res) => {
+    https.get(url, (res) => {
       const filePath = fs.createWriteStream(join(__dirname, filename))
       res.pipe(filePath)
       filePath.on('finish', () => {
