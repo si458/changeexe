@@ -6,7 +6,7 @@ const AdmZip = require('adm-zip')
 
 function downloadResourceHacker() {
   return new Promise(async (resolve, reject) => {
-    let url = 'http://www.angusj.com/resourcehacker/resource_hacker.zip'
+    let url = 'https://www.angusj.com/resourcehacker/resource_hacker.zip'
     let filename = 'resource_hacker.zip'
     console.log(`Downloading ${filename} ...`)
     http.get(url, (res) => {
@@ -35,5 +35,5 @@ try {
 catch (e) {
   console.log(e)
   console.log('ResourceHacker.exe could not be downloaded.')
-  console.log(`Please download http://www.angusj.com/resourcehacker/resource_hacker.zip and extract ResourceHacker.exe to ${join(__dirname, 'resource_hacker')}`)
+  console.log(`Please download https://www.angusj.com/resourcehacker/resource_hacker.zip and extract ResourceHacker.exe to ${join(__dirname, 'resource_hacker')}`)
 }
